@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' id='jquery-core-js'></script>
+
+<head>
+<title>Xiao Li Contact Me</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="navbar">
+  <a href="http://eve.kean.edu/~lxiao/personal/HomePage.html">Home</a>
+  <a href="http://eve.kean.edu/~lxiao/personal/ContactMe.html">Contact Me</a>
+  <a href="http://eve.kean.edu/~lxiao/personal/MyWork.html">My Work</a>
+  <a href="http://eve.kean.edu/~lxiao/personal/MyStore.html">Store</a>
+</div>
+
+<div class="page-content">
+    <section class="fw-main-row">
+      <div class="fw-row">
+        <div class="fw-col-xs-12">
+          <section class="contact-area section-padding light-bg">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <div class="left">
+                    <div class="section-title mb-30">
+                      <h2>Get in touch</h2>
+                      <div class="horizontal-line mb-20">
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                      </div>
+                      <p> Please contact me & let's talk</p>
+                    </div>
+                    <ul class="contact-text clearfix">
+                      <li> <i class="fa fa-phone"></i>
+                        <h4 class="montserrat weight-regular no-margin capitalize">Phone</h4>
+                        <span><a class="montserrat weight-regular" href="tel:+1 732 640 6856">+1 732 640 6856</a></span></li>
+                      <li> <i class="fa fa-envelope-o"></i>
+                        <h4 class="montserrat weight-regular no-margin capitalize">Email</h4>
+                        <span><a class="montserrat weight-regular" href="mailto:lxiao@kean.edu">lxiao@kean.edu</a></span></li>
+                      <li> <i class="fa fa-institution"></i>
+                        <h4 class="montserrat weight-regular no-margin capitalize">Location</h4>
+                        <span class="montserrat weight-regular">East Brunwick, NJ</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                  <div class="right">
+                    <div class="contact-form pt-40">
+                        
+                        <form action="https://formsubmit.co/lxiao@kean.edu" method="post" id="contact-form">
+                          
+                          <div class="custom-input contact_form" >
+                            <div class="row name-email">
+                              <div class="col-xs-12 col-sm-6">
+                                <span class="contact_name">
+                                <input type="text" name="name" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" placeholder="Your Name" />
+                                </span>
+                              </div>
+                              <div class="thank you form">
+                                <input type="hidden" name="_next" value="http://eve.kean.edu/~lxiao/personal/thanksyou.html">
+                              </div>
+                              <div class="col-xs-12 col-sm-6">
+                                <span class="wpcf7-form-control-wrap contact_email">
+                                <input type="email" name="email" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" placeholder="Your Email" />
+                                </span>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12">
+                                <span class="wpcf7-form-control-wrap message">
+                                <textarea name="message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required mt-50" aria-required="true" placeholder="Your Message"></textarea>
+                                </span><br />
+                                <input type="submit" value="Send Message" class="wpcf7-form-control wpcf7-submit btn weight-regular uppercase mt-30" />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script>
+        const constraints = {
+            name: {
+                presence: { allowEmpty: false }
+            },
+            email: {
+                presence: { allowEmpty: false },
+                email: true
+            },
+            message: {
+                presence: { allowEmpty: false }
+            }
+        };
+  
+        const form = document.getElementById('contact-form');
+  
+        form.addEventListener('submit', function (event) {
+            const formValues = {
+                name: form.elements.name.value,
+                email: form.elements.email.value,
+                message: form.elements.message.value
+            };
+  
+            const errors = validate(formValues, constraints);
+  
+            if (errors) {
+                event.preventDefault();
+                const errorMessage = Object
+                    .values(errors)
+                    .map(function (fieldValues) {
+                        return fieldValues.join(', ')
+                    })
+                    .join("\n");
+  
+                alert(errorMessage);
+            }
+        }, false);
+    </script>
+      
+  <script type='text/javascript' id='mim-theme-main-js-js-extra'>var mim = {"theme_uri":"http:\/\/wp.regaltheme.com\/mim\/wp-content\/themes\/mim"};</script>
+  <script defer src="js/automize.js"></script> 
+
+<div class="footer-basic">
+    <footer>
+        <div class="social">
+            <a href="https://twitter.com/makabooo"><i class="icon ion-social-twitter"></i></a>
+            <a href="https://www.twitch.tv/sutoraiku"><i class="icon ion-social-twitch"></i></a>
+            <a href="https://www.linkedin.com/in/xiao-li-653640265/"><i class="icon ion-social-linkedin"></i></a>
+        </div>
+        <p class="copyright">Xiao Li Personal Website &copy; 2023</p>
+        </footer>
+    </div>
+</body>
+</html>
